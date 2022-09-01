@@ -93,6 +93,7 @@ impl Server {
                     }
                 };
                 let port = listener.local_addr()?.port();
+                info!(?port, "using");
                 stream.send(ServerMessage::Hello(port)).await?;
 
                 loop {
